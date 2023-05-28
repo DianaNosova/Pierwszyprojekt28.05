@@ -14,25 +14,19 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class UltimateQATest extends PageSetup {
 
 
-
-
-
-
-
-
     @Test
     public void testOne() {
-        WebElement buttonUsingId = driver.findElementById( "idExample");
+        WebElement buttonUsingId = driver.findElementById("idExample");
         buttonUsingId.click();
 
 
-        WebElement buttonSuccessText =driver.findElementByClassName("entry-title");
+        WebElement buttonSuccessText = driver.findElementByClassName("entry-title");
         assertEquals("Button success", buttonSuccessText.getText());
 
     }
 
 
-     @Test
+    @Test
     public void testTwo() throws InterruptedException {
         WebElement nameTextField = driver.findElementByName("et_pb_contact_name_0");
         nameTextField.sendKeys("Tester");
@@ -50,38 +44,49 @@ public class UltimateQATest extends PageSetup {
         WebElement thanksText = driver.findElementByClassName("et-pb-contact-message");
         assertEquals("Thanks for contacting us", thanksText.getText());
 
-     }
+    }
 
-     @Test
+    @Test
     public void testThree() {
-         WebElement blueField = driver.findElementByXPath("//*[contains(@class, 'et_pb_module et_pb_cta_0 et_pb_promo')]");
+        WebElement blueField = driver.findElementByXPath("//*[contains(@class, 'et_pb_module et_pb_cta_0 et_pb_promo')]");
 
         assertEquals("rgba(46, 163, 242, 1)", blueField.getCssValue("background-color"));
 
-     }
+    }
 
-     @Test
-    public void  testFour(){
+    @Test
+    public void testFour() {
 
-     }
+    }
 
-     @Test
-    public void testFive(){
-        List<String> listOfCars=new ArrayList<>();
+    @Test
+    public void testFive() {
+        List<String> listOfCars = new ArrayList<>();
 
         listOfCars.add("Volvo");
         listOfCars.add("Saab");
         listOfCars.add("Opel");
         listOfCars.add("Audi");
 
-        for (int i = 0; i < listOfCars.size(); i++)
-        {
+        for (int i = 0; i < listOfCars.size(); i++) {
             WebElement dropdownOption = driver.findElementByXPath("//*[@value='" + listOfCars.get(i).toLowerCase() + "']");
             dropdownOption.click();
             assertTrue(dropdownOption.isSelected());
         }
 
-        
+
+    }
+
+    @Test
+    public void testSix() {
+        WebElement buttonUsingXpath1 = driver.findElementByXPath("//span[text()='XPath tutorial for automation testers']/ancestor::h4/following-sibling::div//button");
+        buttonUsingXpath1.click();
+
+
+        WebElement buttonSuccessText = driver.findElementByClassName("entry-title");
+        assertEquals("Button success", buttonSuccessText.getText());
+
+
 
 
 
